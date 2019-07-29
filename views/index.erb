@@ -1,5 +1,9 @@
 <h2>Latest postst:</h2>
 
+<%if @congrat && @congrat.length > 0 then %>
+    <div class="alert alert-danger"><%=@error%></div>
+<% end %>
+
 <% @posts.each do |post| %>
     <p>
       Author name: <%= post['name']  %>, Added at: <%= post['created_at'] %>

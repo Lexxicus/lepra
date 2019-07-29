@@ -7,10 +7,14 @@ require 'sqlite3'
 set :database, {adapter: "sqlite3", database: "lepra.db"}
 # Класс для постов, наследование от актив рекорд
 class Post < ActiveRecord::Base
+  validates :name, presence: true, length: {minimum:  3}
+  validates :post, presence: true
   has_many :comments
 end
 # Класс для коментов, наследование от актив рекорд
 class Comment < ActiveRecord::Base
+  validates :name, presence: true, length: {minimum:  3}
+  validates :comment, presence: true
   belongs_to :post
 end
 
@@ -25,8 +29,14 @@ end
 #Добавление нового поста в базу
 post '/New' do
   @newpost = Post.new params[:post]
-  @newpost.save
-  erb :new
+  if @newpost.save
+    redirect to('/')
+    @congrat = "<h4> Спасибо ! </h4>"
+  else
+    @error = @newpost.errors.full_messages.first
+    erb :new
+  end
+
 end
 
 # Вывод информации о посте

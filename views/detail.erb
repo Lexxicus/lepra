@@ -24,7 +24,6 @@
 <!-- Форма ввода коментария -->
 <p>
 <form action="/detail/<%= @results.id %>" method="post" role="form" >
-  <p name="comment[post_id]" value=""></p>
   <textarea class="form-control"  name="comment[post_id]" ><%= @results.id %></textarea>
   <textarea class="form-control" rows="1" name="comment[name]" placeholder="Type comment text here"></textarea>
   <textarea class="form-control" rows="6" name="comment[comment]" placeholder="Type comment text here"></textarea>
