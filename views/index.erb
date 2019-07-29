@@ -1,2 +1,13 @@
 <h2>Latest postst:</h2>
 
+<% @posts.each do |post| %>
+    <p>
+      Author name: <%= post['name']  %>, Added at: <%= post['created_at'] %>
+      <br />
+      <%= post['post'] %>
+      <br />
+      <br />
+      <a href="/detail/<%= post['id'] %>">Comments</a>
+    </p>
+    <hr />
+<% end %>
