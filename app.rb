@@ -6,10 +6,11 @@ require 'SQLite3'
 #  создаем бд
 set :database, {adapter: 'sqlite3', database: 'lepra.db'}
 
-class Posts < ActiveRecord::Base
+class Post < ActiveRecord::Base
 
 end
 
-class Comments < ActiveRecord::Base
+class Comment < ActiveRecord::Base
 
 end
+
